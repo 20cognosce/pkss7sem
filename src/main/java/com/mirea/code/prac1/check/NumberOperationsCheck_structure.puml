@@ -1,0 +1,27 @@
+@startuml
+start
+:Попытка считать переданные
+        числа из полей ввода;
+:double a = Double.parseDouble(aField.getText());
+:double b = Double.parseDouble(bField.getText());
+if (Числа корректные) then (true)
+    if (a < 0 && b < 0) then (true)
+    : a = a * a;
+    : b = b * b;
+    else (false)
+        if (a >= 0) then (true)
+        : a = 2 * a;
+        else (false)
+        endif
+        if (b >= 0) then (true)
+        : b = 2 * a;
+        else (false)
+        endif
+    endif
+else (false)
+  :"Ошибка: Введите корректные числа";
+  stop
+endif
+:"A: " + a + ", B: " + b;
+stop
+@enduml

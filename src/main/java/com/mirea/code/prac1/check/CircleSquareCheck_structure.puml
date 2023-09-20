@@ -1,0 +1,20 @@
+@startuml
+start
+:Попытка считать переданные
+        числа из полей ввода;
+: double radius = Double.parseDouble(radiusField.getText());
+: double sideLength = Double.parseDouble(sideLengthField.getText());
+if (Числа корректные) then (true)
+    if (            sideLength <= 2 * radius
+                                &&
+    radius <= Math.sqrt(2) * sideLength / 2.0) then (true)
+    :"Круг и квадрат пересекаются.";
+    else (false)
+    :"Круг и квадрат не пересекаются.";
+    endif
+else (false)
+  :"Ошибка: Введите корректные числа";
+  stop
+endif
+stop
+@enduml
