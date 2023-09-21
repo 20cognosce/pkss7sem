@@ -31,10 +31,11 @@ public class Server {
             while (in.hasNext()) {
                 System.out.println("Получен запрос на порту: " + this.port.getPort());
                 switch (port) {
-                    case ONE -> out.println(task1(in.nextLine()));
-                    case TWO, FIVE, FOUR, THREE -> {
-                        return;
-                    }
+                    case ONE -> out.println(Task3.calculate(in.nextLine()));
+                    case TWO -> out.println(Task6.calculate(in.nextLine()));
+                    case THREE -> out.println(Task9.calculate(in.nextLine()));
+                    case FOUR -> out.println(Task12.calculate(in.nextLine()));
+                    case FIVE -> out.println(Task15.calculate(in.nextLine()));
                     default -> throw new IllegalArgumentException();
                 }
             }
@@ -42,9 +43,5 @@ public class Server {
             serverSocket.close();
             clientSocket.close();
         }
-    }
-
-    private static String task1(String args) {
-        return args + " processed by the server";
     }
 }
