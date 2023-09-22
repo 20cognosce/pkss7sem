@@ -1,0 +1,13 @@
+@startuml
+start
+:Считывание параметров double a и double b
+            из полученной строки типа String;
+if (Считаны два числа) then (true)
+    :String calculateExpression(double a, double b);
+else (false)
+  :return "Incorrect input format.";
+  stop
+endif
+:return String.valueOf(Math.sqrt(a * a + b * b));
+stop
+@enduml

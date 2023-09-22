@@ -1,0 +1,17 @@
+@startuml
+start
+:   Считывание параметров S и T
+ из полученной строки типа String;
+if (Считаны два числа) then (true)
+    :calculateExpression(double S, double T);
+    :double result1 = calculateF(T, -2 * S, 1.17)
+    double result2 = calculateF(2.2, T, S - T);
+    :double calculateF(double A, double B, double C);
+    :return (2 * A - B - Math.sin(C)) / (5 + C);
+else (false)
+  :return "Incorrect input format.";
+  stop
+endif
+:return String.valueOf(result1 + result2);;
+stop
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+start
+:Считывание параметров x1,y1,x2,y2,x3,y3,x4,y4,x5,y5 типа double
+                           из полученной строки типа String;
+if (Считаны десять чисел) then (true)
+    :String calculateExpression(double[] args);
+    : double side1 = calculateDistance(x1, y1, x2, y2)
+     double side2 = calculateDistance(x2, y2, x3, y3)
+     double side3 = calculateDistance(x1, y1, x3, y3)
+     double side4 = calculateDistance(x3, y3, x4, y4)
+     double side5 = calculateDistance(x1, y1, x4, y4)
+     double side6 = calculateDistance(x4, y4, x5, y5)
+     double side7 = calculateDistance(x1, y1, x5, y5);
+    :calculateDistance(double x1, double y1, double x2, double y2);
+    :return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    : double area1 = calculateTriangleArea(side1, side2, side3)
+     double area2 = calculateTriangleArea(side3, side4, side5)
+     double area3 = calculateTriangleArea(side5, side6, side7);
+     :calculateTriangleArea(double a, double b, double c);
+     :double s = (a + b + c) / 2
+     return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+else (false)
+  :return "Incorrect input format.";
+  stop
+endif
+:return String.format(Locale.US,"%.2f", area1 + area2 + area3);
+stop
+@enduml

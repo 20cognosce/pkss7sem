@@ -36,11 +36,14 @@ public class Task15 {
     private static List<Double>[] extractParameters(String input) {
         try {
             var args = input.trim().split(" ");
+            System.out.printf("Parsed arrays: [%s], [%s]\n", args[0], args[1]);
 
-            var a = (ArrayList<Double>) Arrays.stream(args[0].split(","))
-                    .map(Double::parseDouble).toList();
-            var b = (ArrayList<Double>) Arrays.stream(args[1].split(","))
-                    .map(Double::parseDouble).toList();
+            var a = new ArrayList<>(Arrays.stream(args[0].split(","))
+                    .map(Double::parseDouble)
+                    .toList());
+            var b = new ArrayList<>(Arrays.stream(args[1].split(","))
+                    .map(Double::parseDouble)
+                    .toList());
 
             System.out.printf("Extracted input parameters: a = %s, b = %s", a, b);
             return new ArrayList[]{a, b};

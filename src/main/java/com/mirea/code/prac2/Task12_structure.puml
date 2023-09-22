@@ -1,0 +1,20 @@
+@startuml
+start
+:Считывание параметров a,b,c типа double
+        из полученной строки типа String;
+if (Считаны 3 числа) then (true)
+    :String calculateExpression(double[] args);
+    :AtomicReference<String> result = new AtomicReference<>("");
+    :for (double arg : args);
+    if (arg > 0) then (true)
+      :result.set(result + "+ ");
+    else (false)
+      :result.set(result + "- ");
+    endif
+else (false)
+  :return "Incorrect input format.";
+  stop
+endif
+:return result.get();
+stop
+@enduml

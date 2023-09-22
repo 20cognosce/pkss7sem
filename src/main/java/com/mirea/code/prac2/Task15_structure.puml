@@ -1,0 +1,21 @@
+@startuml
+start
+:Считывание параметров x1,y1,x2,y2,x3,y3,x4,y4,x5,y5 типа double
+                           из полученной строки типа String;
+if (Считаны два числа) then (true)
+    :String calculateExpression(double[] args);
+    :Double[] avgs = new Double[2];
+    :for (int i = 0 i < args.length i++);
+    :var array = args[i] //
+    final int = i
+    array.stream()
+        .mapToDouble(e -> e)
+        .average()
+        .ifPresentOrElse(avg -> avgs[j] = avg, () -> avgs[j] = null);
+else (false)
+  :return "Incorrect input format.";
+  stop
+endif
+:return String.format("{%s} {%s}", avgs[0], avgs[1]);
+stop
+@enduml
